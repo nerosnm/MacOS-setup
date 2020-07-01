@@ -12,15 +12,17 @@ nonAppStoreApps=(
     firefox-developer-edition
     chromium
 #Developer
-    postman # Most popular HTTP requests tool
     visual-studio-code # Modern code editor with community-driven plugins
-    tableplus # Modern SQL client
-    charles # Web debugging proxy
     mactex # Full LateX installation with supporting apps, about 4GB!
     alacritty # GPU-accelerated terminal emulator
     sketch # UI/UX design tool
     dotnet-sdk # Dotnet language support
     docker # App to make containers for environments 
+    jetbrains-toolbox
+    monodraw
+    virtualbox
+    github
+    jabref
     # zeplin # UI/UX design viewer
     # typora # Markdown single pane editor
     # sourcetree # GUI for git and gitflow
@@ -31,6 +33,7 @@ nonAppStoreApps=(
     iina # Best looking macOS video watching app
     # vlc # Most popular cross-platform video watching app
     handbrake # Video Transcoder
+    4k-video-downloader
 #OTHER
     transmission # Torrents client
     # skype # Communicator
@@ -44,6 +47,10 @@ nonAppStoreApps=(
     scroll-reverser # Reverse scrolling setting separate for touchpad and mouse. Use instead of bettertouchtool
     bartender # Top bar management
     contexts # Better window switcher
+    keybase
+    radio-silence
+    skim
+    notion
 #Audio 
     spotify # Most popular music streaming service
     soundflower # App giving additional audio sources for audio manipulation
@@ -56,6 +63,8 @@ nonAppStoreApps=(
     # paw # MacOS native HTTP requests tool
     # reveal # App to edit iOS Views on the fly
 #Other
+    karabiner-elements
+    gnucash
     # anki # App for learning with flashcards
     # zoomus # Video conference App
     # wine-stable # App to open Windows .exe files
@@ -100,6 +109,7 @@ appStoreApps=(
     1014850245 # Monit (Sensors & stats monitoring app for notification centre)
     441258766 # Magnet (Window snapping to edges of screen)
     1150900821 # Caato Time Tracker+ (Time tracking for project work)
+    430255202 # Mactracker
 #Unused
     # 985367838 # Microsoft Outlook (Email client)
     # 673660806 # Controllers Lite (Gamepads diagnostics app)
@@ -141,6 +151,8 @@ defaults write com.apple.dock tilesize -int 45
 echo "Restarting dock…"
 killall Dock
 
+brew tap bvaisvil/zenith
+
 # List of brew packages
 brewPackages=(
     swiftlint # Linter for swift language
@@ -157,13 +169,32 @@ brewPackages=(
     gotop
     htop
     asciiquarium
+    node
+    tectonic
+    ninja
+    ghc
+    haskell-stack
+    scala
+    kubectl
+    hyperkit
+    minikube
+    insomnia
+    go
+    protobuf
+    Rigellute/tap/spotify-tui
+    hub
+    zenith
+    opam
 )
 
 # install brew packages
 brew install ${brewPackages[@]}
 
+# set up OCaml
+opam init
+
 # install CocoaPods dependency manager for iOS apps
-# sudo gem install cocoapods
+sudo gem install cocoapods
 
 # install CocoaPods Keys plugin
 # sudo gem install cocoapods-keys
@@ -222,7 +253,15 @@ cargoPackages=(
     sd
     du-dust
     starship
+    tokei
+    procs
+    hyperfine
+    zoxide
+    xsv
 )
+
+# bvaisvil/zenith
+# uutils/coreutils
 
 cargo install ${cargoPackages[@]}
 
